@@ -32,14 +32,6 @@ Geo IP Reverse is a simple web application that retrieves geolocation details fr
 - **OpenStreetMap Nominatim API**: Utilized for reverse geocoding to obtain detailed address information.
 - **GeoJS API**: Used for fetching IP-based geolocation data.
 
-## License
+## Contribute
 
-1. This project is licensed under the MIT License.
-
-   ```bash
-    In this version, I've corrected the formatting of the "How to Use" section and added a "Technologies Used" section with bullet points to list out the technologies used in the project.
-   ```
-
-```
-
-```
+Feel free to contritbute the project.
