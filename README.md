@@ -19,7 +19,7 @@ Geo IP Reverse is a simple web application that retrieves geolocation details fr
    git clone https://github.com/your-username/geo-ip-reverse.git
    ```
 
-2. Open the index.html file in your preferred web browser.
+2. Open the geo-ip.html file in your preferred web browser.
 
 3. Allow the browser to access your location when prompted.
 
