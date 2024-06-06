@@ -1,4 +1,4 @@
-# GeoP IP Reverse
+# Geo IP Reverse
 
 Geo IP Reverse is a simple web application that retrieves geolocation details from IP addresses using reverse geocoding. It finds the real latitude and longitude with good accuracy.
 
@@ -19,8 +19,6 @@ Geo IP Reverse is a simple web application that retrieves geolocation details fr
    git clone https://github.com/your-username/geo-ip-reverse.git
    ```
 
-````
-
 2. Open the index.html file in your preferred web browser.
 
 3. Allow the browser to access your location when prompted.
@@ -38,4 +36,7 @@ Geo IP Reverse is a simple web application that retrieves geolocation details fr
    ```bash
     In this version, I've corrected the formatting of the "How to Use" section and added a "Technologies Used" section with bullet points to list out the technologies used in the project.
    ```
-````
+
+```
+
+```
