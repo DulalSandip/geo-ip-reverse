@@ -27,7 +27,10 @@ Geo IP Reverse is a simple web application that retrieves geolocation details fr
 
 ## Technology Used
 
-- **HTML**: Used for structuring the web page content. -**JavaScript**: Implemented to fetch and manipulate data, as well as interact with APIs. -**OpenStreetMap Nominatim API**: Utilized for reverse geocoding to obtain detailed address information. -**GeoJS API**: Used for fetching IP-based geolocation data.
+- **HTML**: Used for structuring the web page content.
+- **JavaScript**: Implemented to fetch and manipulate data, as well as interact with APIs.
+- **OpenStreetMap Nominatim API**: Utilized for reverse geocoding to obtain detailed address information.
+- **GeoJS API**: Used for fetching IP-based geolocation data.
 
 ## License
 
