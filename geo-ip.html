@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Geolocation and Reverse Geocoding</title>
+  </head>
+  <body>
+    <div id="locationData"></div>
+    <script>
+      function displayLocationData(data) {
+        const locationDiv = document.getElementById("locationData");
+        locationDiv.innerHTML = `
+            <p>IP Address: ${data.ip}</p>
+            <p>Accuracy: ${data.accuracy} meters</p>
+            <p>Latitude: ${data.latitude}</p>
+            <p>Longitude: ${data.longitude}</p>
+            <p>City: ${data.city}</p>
+            <p>Country: ${data.country}</p>
+            <p>Timezone: ${data.timezone}</p>
+            <p>Postal Code: ${data.postal_code}</p>
+        `;
+      }
+
+      function getCityFromCoordinates(latitude, longitude) {
+        const url = `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${latitude}&lon=${longitude}`;
+
+        return fetch(url)
+          .then((response) => response.json())
+          .then((data) => {
+            if (data && data.address) {
+              return {
+                city:
+                  data.address.city ||
+                  data.address.town ||
+                  data.address.village ||
+                  "",
+                postal_code: data.address.postcode || "",
+              };
+            } else {
+              throw new Error("No results found");
+            }
+          });
+      }
+
+      fetch("https://get.geojs.io/v1/ip/geo.json")
+        .then((response) => response.json())
+        .then((ipData) => {
+          navigator.geolocation.getCurrentPosition(
+            function (position) {
+              const latitude = position.coords.latitude;
+              const longitude = position.coords.longitude;
+
+              getCityFromCoordinates(latitude, longitude)
+                .then((locationData) => {
+                  const combinedData = {
+                    ip: ipData.ip,
+                    accuracy: ipData.accuracy,
+                    latitude,
+                    longitude,
+                    city: locationData.city,
+                    country: ipData.country_name,
+                    timezone: ipData.timezone,
+                    postal_code: locationData.postal_code,
+                  };
+                  displayLocationData(combinedData);
+                })
+                .catch((error) => {
+                  console.error(
+                    "An error occurred while reverse geocoding:",
+                    error
+                  );
+                });
+            },
+            function (error) {
+              console.error(
+                "An error occurred while getting geolocation:",
+                error
+              );
+            },
+            {
+              enableHighAccuracy: true,
+            }
+          );
+        })
+        .catch((error) => {
+          console.error(
+            "An error occurred while fetching IP information:",
+            error
+          );
+        });
+    </script>
+  </body>
+</html>

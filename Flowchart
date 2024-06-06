@@ -1,0 +1,49 @@
+        +-----------+           +--------------+
+        |           |           |              |
+Start ->| Fetch IP  |---------->| Request User |
+        | location  |           | Geolocation  |
+        | data      |           |              |
+        +-----------+           +------+-------+
+                                        |
+                                        v
+                           +------------+--------------+
+                           |                           |
+                           | Geolocation is successful |
+                           |                           |
+                           +-------+---------+---------+
+                                   |         |
+                                   v         |
+                        +------------+--------++
+                        | Fetch city & |         |
+                        | postal code  |         |
+                        | from         |         |
+                        | coordinates  |         |
+                        +--------------+         |
+                                   |              |
+                                   v              v
+                      +---------------+      +------------------+
+                      |               |      |                  |
+                      | City & postal |      | Handle error     |
+                      | code fetched  |      | (e.g., log error)|
+                      | successfully |      |                  |
+                      +---------------+      +------------------+
+                                   |                        |
+                                   v                        |
+                      +---------------+         +-------------------+
+                      |               |         |                   |
+                      | Merge data    |         | End               |
+                      | (combine      |         |                   |
+                      | accurate lat/|         |                   |
+                      | lon with      |         |                   |
+                      | city/postal  |         |                   |
+                      | code)         |         |                   |
+                      +---------------+         +-------------------+
+                                   |
+                                   v
+                      +-----------------------------+
+                      |                             |
+                      | Log combined data           |
+                      | (accurate lat/lon, city,    |
+                      | postal code)                |
+                      |                             |
+                      +-----------------------------+
