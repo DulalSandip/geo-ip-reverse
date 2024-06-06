@@ -11,15 +11,27 @@
       function displayLocationData(data) {
         const locationDiv = document.getElementById("locationData");
         locationDiv.innerHTML = `
-            <p>IP Address: ${data.ip}</p>
-            <p>Accuracy: ${data.accuracy} meters</p>
-            <p>Latitude: ${data.latitude}</p>
-            <p>Longitude: ${data.longitude}</p>
-            <p>City: ${data.city}</p>
-            <p>Country: ${data.country}</p>
-            <p>Timezone: ${data.timezone}</p>
-            <p>Postal Code: ${data.postal_code}</p>
-        `;
+        <p>IP Address: ${data.ip}</p>
+        <p>Accuracy: ${data.accuracy} meters</p>
+        <p>Latitude: ${data.latitude}</p>
+        <p>Longitude: ${data.longitude}</p>
+        <p>City: ${data.city}</p>
+        <p>Country: ${data.country}</p>
+        <p>Timezone: ${data.timezone}</p>
+        <p>Postal Code: ${data.postal_code}</p>
+        ${
+          data.continent_code
+            ? `<p>Continent Code: ${data.continent_code}</p>`
+            : ""
+        }
+        ${data.organization ? `<p>Organization: ${data.organization}</p>` : ""}
+        ${
+          data.organization_name
+            ? `<p>ISP Name: ${data.organization_name}</p>`
+            : ""
+        }
+        ${data.region ? `<p>Region: ${data.region}</p>` : ""}
+      `;
       }
 
       function getCityFromCoordinates(latitude, longitude) {
@@ -36,6 +48,11 @@
                   data.address.village ||
                   "",
                 postal_code: data.address.postcode || "",
+                country_code: data.address.country_code || "",
+                continent_code: data.address.continent_code || "",
+                organization: data.address.organization || "",
+                organization_name: data.address.organization_name || "",
+                region: data.address.region || "",
               };
             } else {
               throw new Error("No results found");
@@ -59,9 +76,20 @@
                     latitude,
                     longitude,
                     city: locationData.city,
-                    country: ipData.country_name,
+                    country: ipData.country,
                     timezone: ipData.timezone,
                     postal_code: locationData.postal_code,
+                    continent_code:
+                      ipData.continent_code ||
+                      locationData.continent_code ||
+                      "",
+                    organization:
+                      ipData.organization || locationData.organization || "",
+                    organization_name:
+                      ipData.organization_name ||
+                      locationData.organization_name ||
+                      "",
+                    region: ipData.region || locationData.region || "",
                   };
                   displayLocationData(combinedData);
                 })
