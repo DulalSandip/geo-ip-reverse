@@ -2,6 +2,8 @@
 
 GeoP IP Reverse is a simple web application that retrieves geolocation details from IP addresses using reverse geocoding. It finds the real latitude and longitude with good accuracy.
 
+![Demo Image](demo.png)
+
 ## Features
 
 - **Reverse Geocoding**: Utilizes the OpenStreetMap Nominatim API to perform reverse geocoding, fetching detailed address information based on latitude and longitude coordinates.
@@ -9,13 +11,13 @@ GeoP IP Reverse is a simple web application that retrieves geolocation details f
 - **Combining Data**: Merges IP-based and accurate geolocation data to provide comprehensive location information, including IP address, accuracy, latitude, longitude, city, country, timezone, and postal code.
 - **Display**: Renders the combined location data directly in the browser, enhancing user experience by providing immediate feedback.
 
-## How to Use
-
 1. Clone the repository to your local machine:
 
    ```bash
    git clone https://github.com/your-username/geop-ip-reverse.git
    ```
+
+````
 
 2. Open the index.html file in your preferred web browser.
 
@@ -32,5 +34,6 @@ GeoP IP Reverse is a simple web application that retrieves geolocation details f
 1. This project is licensed under the MIT License.
 
    ```bash
-    In this version, I've corrected the formatting of the "How to Use" section and added a "Technologies Used" section with bullet points to list out the technologies used in the project. Feel free to customize the "Additional Information" section with any further details about your project.
+    In this version, I've corrected the formatting of the "How to Use" section and added a "Technologies Used" section with bullet points to list out the technologies used in the project.
    ```
+````
