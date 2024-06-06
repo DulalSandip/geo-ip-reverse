@@ -4,7 +4,7 @@ Geo IP Reverse is a simple web application that retrieves geolocation details fr
 
 ## Demo Image
 
-![Demo Image](demo.png)
+![Demo Image](demo_img.png)
 
 ## Features
 
